@@ -1,36 +1,38 @@
-*
+*       /* 전체 선택자. html 내부 모든 elements에 아래 css 속성을 적용한다.*/
 {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: consolas;
+    box-sizing: border-box; /* 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성. 여기서는 테두리를 기준으로 크기를 정한다는 뜻*/
+    font-family: consolas; /* 글꼴을 consolas로 설정*/
 
 }
-body{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #111;
 
-}
-.scan
+body    /* body tag에 아래 적용 */
 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
-.scan .fingerprint
-{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    background: url(./fingerPrint_01.png);
-    background-size: 300px;
+    display:flex;   /*화면에 나타내는 크기 설정. flex는 layout 배치. grid 같은 건데 grid가 나중에 나온 것*/
+    justify-content: center; /*가로축을 기준으로. 중앙 정렬*/
+    align-items: center; /*세로 축을 기준으로. 중앙 정렬*/
+    min-height: 100vh; /* 최소값-높이. 현재 스크린의 전체 사용  */
+    background: #111; /*배경색을 #111로 */
 
 }
-.scan .fingerprint::before
+.scan   /* scan class라 mapping 된 tag에 적용 */
+{
+    position: relative; /*문서 안 요소 배치. 부모 요소에 연결해 location*/
+    display: flex;  /* 화면에 나타내는 크기 설정. flex는 layout 배치. grid 같은 건데 grid가 나중에 나온 것 */
+    flex-direction: column; /*플렉스 컨테이너 내 사용할 주축 및 방향을 지정. column 이니까 들어오는 것 부터 아래로 쌓인다. */
+    align-items:center;  /*세로 축을 기준으로. 중앙 정렬*/
+}
+.scan .fingerprint  /*scan tag_fingerprint class에 적용*/
+{
+    position: relative; /*문서 안 요소 배치. 부모 요소에 연결해 location*/
+    width: 300px;   /*이것의 가로는 300px*/
+    height: 300px;  /*이것의 세로는 300px*/
+    background-image: url(./fingerPrint_01.png); /* 뒷배경을 이미지로. 해당 이미지 주소 표기  */
+    background-size: 300px; /*이미지 크기 지정*/
+
+}
+.scan .fingerprint::before  /*::는 가상요소 만드는 것. fingerprint의 가상요소를 만든다는데 이건 잘 모르겠다.*/
 {
     content: '';
     position: absolute;
@@ -40,9 +42,9 @@ body{
     height: 100%;
     background: url(./fingerPrint_02.png);
     background-size: 300px;
-    animation: animate 4s ease-in-out infinite;
+    animation: animate 4s ease-in-out infinite; /* element에 적용되는 CSS 값을 다른 CSS 스타일로 부드럽게 전환. 4초간, 시작과 끝의 변화를 천천히 진행, 무한반복 */
 }
-@keyframes animate
+@keyframes animate /*개발자가 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써 CSS 애니메이션 과정의 중간 절차를 제어. 0과 100%에서 높이, 50%에서 높이 설정*/
 {
     0%, 100%
     {
@@ -53,7 +55,7 @@ body{
         height: 100%;
     }
 }
-.scan .fingerprint::after
+.scan .fingerprint::after /*막대기 위에서 아래로 왔다 갔다 하는 것 만듦*/
 {
     content:'';
     position: absolute;
@@ -62,8 +64,8 @@ body{
     width: 100%;
     height: 8px;
     background: #3fefef;
-    border-radius: 8px;
-    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 20px 60px #3fefef);
+    border-radius: 8px; /*테두리 경계 꼭지점을 둥글게 깎음*/
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 20px 60px #3fefef);   /*display에 element가 보이기 전 filter를 주는 것. 이미지에 그림자 효과를 준다.*/
     animation: animate_line 4s ease-in-out infinite;
 }
 @keyframes animate_line {
@@ -79,7 +81,7 @@ body{
 .scan h3{
   text-transform: uppercase;
   font-size:  2em;
-  letter-spacing: 2px;
+  letter-spacing: 2px; /*자간 간격 조절*/
   margin-top:20;
   color: #3fefef; filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 20px 60px #3fefef);
   
@@ -90,10 +92,10 @@ body{
 {
     0%, 100%
     {
-        opacity: 0%;
+        opacity: 0%; /*불투명도, 0 == 완전히  투명해짐*/
     }
     50%
     {
-       opacity: 1;
+       opacity: 1; /*불투명도, 1 == 요소가 완벽히 불투명*/
     }
 }

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Scanning Fingerprint ANimation</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<title>Scanning Fingerprint ANimation</title>   <!-- web page tab에서 나오는 이름 설정 -->
+<link rel="stylesheet" type="text/css" href="./style.css"/>   
+ <!-- link: 외부 문서 include. head 태그 안에서 사용 必
+        rel: 외부 문서와의 관계를 나타낸다. 
+            stylesheet: .css 파일 이라는 뜻
+        type: 연결문서와의 MIME 유형을 나타낸다. {MIME 타입이란 클라이언트에게 전송된 문서의 다양성을 알려주기 위한 메커니즘}  
+        href: 연결될 문서 link. ""안에는 경로( 상대 || 절대 ) 설정해주면 된다.    
+-->
 </head>
 <body>
-    <div class="scan">
-        <div class="fingerprint"></div>
+    <div class="scan">  <!-- div 태그를 scan 이라는 class로 mapping  -->
+        <div class="fingerprint"></div> 
         <h3>Scanning...</h3>
     </div>
 </body>
